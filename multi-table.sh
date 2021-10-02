@@ -1,9 +1,20 @@
-#!/bin/bash
+#!/bin/sh
 
+if [ $1 -lt 1 ]
+then
+	echo "wrong range"
+	exit
+fi
 
-for ((x=1; x<=$1; x++))
+if [ $2 -lt 1 ]
+then
+	echo "wrong range"
+	exit
+fi
+
+for x in $(seq 1 $1)
 do
-	for ((y=1; y<=$2; y++))
+	for y in $(seq 1 $2)
 	do
 		res=$((x * y))
 		printf "%d * %d = " $x $y
@@ -11,4 +22,4 @@ do
 	done
 	echo ""
 done
-
+exit 0
